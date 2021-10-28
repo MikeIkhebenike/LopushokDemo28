@@ -35,18 +35,18 @@ namespace LopushokDemo
             System.Windows.Forms.Label productIDLabel;
             this.countTextBox = new System.Windows.Forms.TextBox();
             this.materialIDComboBox = new System.Windows.Forms.ComboBox();
+            this.productMaterialBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.materialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productIDTextBox = new System.Windows.Forms.TextBox();
             this.ExitBtn = new System.Windows.Forms.Button();
             this.SaveBtn = new System.Windows.Forms.Button();
-            this.materialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productMaterialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             countLabel = new System.Windows.Forms.Label();
             materialIDLabel = new System.Windows.Forms.Label();
             productIDLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.productMaterialBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productMaterialBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // countLabel
@@ -58,13 +58,6 @@ namespace LopushokDemo
             countLabel.TabIndex = 13;
             countLabel.Text = "Count:";
             // 
-            // countTextBox
-            // 
-            this.countTextBox.Location = new System.Drawing.Point(88, 87);
-            this.countTextBox.Name = "countTextBox";
-            this.countTextBox.Size = new System.Drawing.Size(121, 20);
-            this.countTextBox.TabIndex = 16;
-            // 
             // materialIDLabel
             // 
             materialIDLabel.AutoSize = true;
@@ -73,6 +66,22 @@ namespace LopushokDemo
             materialIDLabel.Size = new System.Drawing.Size(61, 13);
             materialIDLabel.TabIndex = 17;
             materialIDLabel.Text = "Material ID:";
+            // 
+            // productIDLabel
+            // 
+            productIDLabel.AutoSize = true;
+            productIDLabel.Location = new System.Drawing.Point(21, 27);
+            productIDLabel.Name = "productIDLabel";
+            productIDLabel.Size = new System.Drawing.Size(61, 13);
+            productIDLabel.TabIndex = 19;
+            productIDLabel.Text = "Product ID:";
+            // 
+            // countTextBox
+            // 
+            this.countTextBox.Location = new System.Drawing.Point(88, 87);
+            this.countTextBox.Name = "countTextBox";
+            this.countTextBox.Size = new System.Drawing.Size(121, 20);
+            this.countTextBox.TabIndex = 16;
             // 
             // materialIDComboBox
             // 
@@ -86,14 +95,13 @@ namespace LopushokDemo
             this.materialIDComboBox.TabIndex = 18;
             this.materialIDComboBox.ValueMember = "ID";
             // 
-            // productIDLabel
+            // productMaterialBindingSource
             // 
-            productIDLabel.AutoSize = true;
-            productIDLabel.Location = new System.Drawing.Point(21, 27);
-            productIDLabel.Name = "productIDLabel";
-            productIDLabel.Size = new System.Drawing.Size(61, 13);
-            productIDLabel.TabIndex = 19;
-            productIDLabel.Text = "Product ID:";
+            this.productMaterialBindingSource.DataSource = typeof(LopushokDemo.ProductMaterial);
+            // 
+            // materialBindingSource
+            // 
+            this.materialBindingSource.DataSource = typeof(LopushokDemo.Material);
             // 
             // productIDTextBox
             // 
@@ -121,23 +129,15 @@ namespace LopushokDemo
             this.SaveBtn.Text = "Сохранить";
             this.SaveBtn.UseVisualStyleBackColor = true;
             // 
-            // materialBindingSource
-            // 
-            this.materialBindingSource.DataSource = typeof(LopushokDemo.Material);
-            // 
             // productBindingSource
             // 
             this.productBindingSource.DataSource = typeof(LopushokDemo.Product);
             // 
-            // productMaterialBindingSource
-            // 
-            this.productMaterialBindingSource.DataSource = typeof(LopushokDemo.ProductMaterial);
-            // 
-            // AddEditMaterialForm
+            // AddEditProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(248, 157);
+            this.ClientSize = new System.Drawing.Size(561, 433);
             this.Controls.Add(countLabel);
             this.Controls.Add(this.countTextBox);
             this.Controls.Add(materialIDLabel);
@@ -146,12 +146,12 @@ namespace LopushokDemo
             this.Controls.Add(this.productIDTextBox);
             this.Controls.Add(this.ExitBtn);
             this.Controls.Add(this.SaveBtn);
-            this.Name = "AddEditMaterialForm";
-            this.Text = "AddEditMaterialForm";
+            this.Name = "AddEditProductForm";
+            this.Text = "AddEditProductForm";
             this.Load += new System.EventHandler(this.AddEditMaterialForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.productMaterialBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productMaterialBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

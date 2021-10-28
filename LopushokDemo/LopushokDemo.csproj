@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEditProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditProductForm.Designer.cs">
+      <DependentUpon>AddEditProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddEditMaterialForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     <Compile Include="ProductType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddEditProductForm.resx">
+      <DependentUpon>AddEditProductForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEditMaterialForm.resx">
       <DependentUpon>AddEditMaterialForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +103,7 @@
     <None Include="Properties\DataSources\Material.datasource" />
     <None Include="Properties\DataSources\Product.datasource" />
     <None Include="Properties\DataSources\ProductMaterial.datasource" />
+    <None Include="Properties\DataSources\ProductType.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

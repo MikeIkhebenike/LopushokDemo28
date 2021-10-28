@@ -42,7 +42,6 @@ namespace LopushokDemo
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productTypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +50,7 @@ namespace LopushokDemo
             this.productionPersonCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productionWorkshopNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minCostForAgentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -86,6 +86,7 @@ namespace LopushokDemo
             this.deleteProduct.TabIndex = 22;
             this.deleteProduct.Text = "Удалить товар";
             this.deleteProduct.UseVisualStyleBackColor = true;
+            this.deleteProduct.Click += new System.EventHandler(this.deleteProduct_Click);
             // 
             // EditProductBtn
             // 
@@ -95,6 +96,7 @@ namespace LopushokDemo
             this.EditProductBtn.TabIndex = 23;
             this.EditProductBtn.Text = "Редактировать товар";
             this.EditProductBtn.UseVisualStyleBackColor = true;
+            this.EditProductBtn.Click += new System.EventHandler(this.EditProductBtn_Click);
             // 
             // AddProductBtn
             // 
@@ -104,6 +106,7 @@ namespace LopushokDemo
             this.AddProductBtn.TabIndex = 24;
             this.AddProductBtn.Text = "Добавить товар";
             this.AddProductBtn.UseVisualStyleBackColor = true;
+            this.AddProductBtn.Click += new System.EventHandler(this.AddProductBtn_Click);
             // 
             // CostChangeBtn
             // 
@@ -181,10 +184,6 @@ namespace LopushokDemo
             this.label1.TabIndex = 16;
             this.label1.Text = "Сортировка";
             // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(LopushokDemo.Product);
-            // 
             // ID
             // 
             this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -250,6 +249,10 @@ namespace LopushokDemo
             this.minCostForAgentDataGridViewTextBoxColumn.Name = "minCostForAgentDataGridViewTextBoxColumn";
             this.minCostForAgentDataGridViewTextBoxColumn.ReadOnly = true;
             this.minCostForAgentDataGridViewTextBoxColumn.Width = 104;
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(LopushokDemo.Product);
             // 
             // Form1
             // 

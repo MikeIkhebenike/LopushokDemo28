@@ -103,5 +103,81 @@ namespace LopushokDemo
             // передаем промежуточному элементу
             productBindingSource.DataSource = lstProduct;
         }
+
+        private void AddProductBtn_Click(object sender, EventArgs e)
+        {
+            AddEditMaterialForm form = new AddEditMaterialForm();
+            form.prd = null;
+            DialogResult dr = form.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                DataWork();
+            }
+        }
+
+        private void EditProductBtn_Click(object sender, EventArgs e)
+        {
+            AddEditMaterialForm form = new AddEditMaterialForm();
+            Product prd = (Product)productBindingSource.Current;
+            form.prd = prd;
+
+            DialogResult dr = form.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                DataWork();
+            }
+        }
+
+        private void deleteProduct_Click(object sender, EventArgs e)
+        {
+            Product prd = (Product)productBindingSource.Current;
+            DialogResult dr = MessageBox.Show("Вы действительно хотите удалить продукт - " + prd.Title,
+               "Удаление продукции", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                // Проверяем - можно ли удалять эту продукцию
+                // проверяем - есть ли данные о продажах товара?
+                //if (prd.ProductSale.Count > 0)
+                //{
+                //    MessageBox.Show("Данную продукцию удалить нельзя, т.к. есть данные о продажах!");
+                //    return;
+                //}
+                //// проверяем - есть данные о материалах?
+                //if (prd.ProductMaterial.Count > 0)
+                //{//  удаляем данные о материалах
+                //    //foreach (ProductMaterial prd_mtr in prd.ProductMaterial)
+                //    //{
+                //    //    Program.db.ProductMaterial.Remove(prd_mtr);
+                //    //}
+                //    Program.db.ProductMaterial.RemoveRange(prd.ProductMaterial);
+                //}
+                //// проверяем - есть данные о истории стоимости?
+                //if (prd.ProductCostHistory.Count > 0)
+                //{//  удаляем данные о истории стоимости
+                //    //foreach (ProductCostHistory prd_hist in prd.ProductCostHistory)
+                //    //{
+                //    //    Program.db.ProductCostHistory.Remove(prd_hist);
+                //    //}
+                //    Program.db.ProductCostHistory.RemoveRange(prd.ProductCostHistory);
+                //}
+
+                // удаляем выбранный объект из коллекции
+                Program.db.Product.Remove(prd);
+
+                // сохраняем сделанные изменения в БД
+                try  // обрабатываем исключения
+                {
+                    // сохраняем сделанные изменения в БД
+                    Program.db.SaveChanges();
+                    // завершаем работу формы
+                    DialogResult = DialogResult.OK;
+                }
+                catch (Exception ex)  // если ошибка, то попадаем сюда
+                {
+                    // выводим сообщение SQL Server об ошибке
+                    MessageBox.Show(ex.InnerException.InnerException.Message);
+                }
+            }
+        }
     }
 }
